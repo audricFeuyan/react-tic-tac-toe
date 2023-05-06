@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.form-playground{
+  height: 100%;
+}
+
+.form-playground-line{
+  height: 100%;
+}
+.form-playground-column{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.form-check-input{
+  width: 100 !important;
+  height: 100 !important;
+}
