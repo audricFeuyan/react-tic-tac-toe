@@ -6,9 +6,8 @@ import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { PlayState } from './app/dataType';
 
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
+
+import { InputCheckBox } from './components/InputCheckBox';
 
 function App() {
   const [pageViewportWidth, setPageViewportWidth] = useState(window.innerWidth);
@@ -48,15 +47,21 @@ function App() {
   };
 
   const panelSize = Math.min(Math.round(pageViewportHeight), Math.round(pageViewportWidth))*0.9;
+  const defaultPlaygroundCellSpacing = 10;
   const playgroundStyle = {
     width: panelSize,
     height: panelSize,
     marginLeft: 'auto',
     marginRight: 'auto'
   };
-  const playgroundCellStyle = {
-    height: Math.round(panelSize/3),
+  const playgroundColumnStyle = {
     width: Math.round(panelSize/3),
+  };
+  const cellSize = Math.round(panelSize/3) - defaultPlaygroundCellSpacing;
+  const playgroundCellStyle = {
+    height: cellSize,
+    width: cellSize,
+    fontSize: cellSize,
     justifyContent: 'center',
     alignContent: 'center',
   };
@@ -65,25 +70,23 @@ function App() {
     <div className="App">
       <h1>Mon tic tac toe</h1>
       <div style={playgroundStyle}>
-        <Form className="form-playground">
-          <Row className="form-playground-line">
-            <Col className="form-playground-column">
-              <Form.Check aria-label="option 1" style={playgroundCellStyle} />
-              <Form.Check aria-label="option 1" style={playgroundCellStyle} />
-              <Form.Check aria-label="option 1" style={playgroundCellStyle} />
-            </Col>
-            <Col className="form-playground-column">
-              <Form.Check aria-label="option 1"/>
-              <Form.Check aria-label="option 1" />
-              <Form.Check aria-label="option 1" />
-            </Col>
-            <Col className="form-playground-column">
-              <Form.Check aria-label="option 1" />
-              <Form.Check aria-label="option 1" />
-              <Form.Check aria-label="option 1" />
-            </Col>
-          </Row>
-        </Form>
+        <div className="form-playground-line" style={playgroundStyle}>
+          <div className="form-playground-column" style={playgroundColumnStyle} >
+            <InputCheckBox playgroundCellStyle={playgroundCellStyle} />
+            <InputCheckBox playgroundCellStyle={playgroundCellStyle} />
+            <InputCheckBox playgroundCellStyle={playgroundCellStyle} />
+          </div>
+          <div className="form-playground-column" style={playgroundColumnStyle}>
+            <InputCheckBox playgroundCellStyle={playgroundCellStyle} />
+            <InputCheckBox playgroundCellStyle={playgroundCellStyle} />
+            <InputCheckBox playgroundCellStyle={playgroundCellStyle} />
+          </div>
+          <div className="form-playground-column" style={playgroundColumnStyle}>
+            <InputCheckBox playgroundCellStyle={playgroundCellStyle} />
+            <InputCheckBox playgroundCellStyle={playgroundCellStyle} />
+            <InputCheckBox playgroundCellStyle={playgroundCellStyle} />
+          </div>
+        </div>
       </div>
     </div>
   );

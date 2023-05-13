@@ -1,0 +1,17 @@
+input{
+    cursor: pointer;
+    font-size: 20rem;
+    text-align: center;
+    border: none;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;
+}
+input::-moz-selection {
+    color: black;
+    background: white;
+}
+input::selection {
+    color: black;
+    background: white;
+}
