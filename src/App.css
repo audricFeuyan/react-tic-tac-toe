@@ -22,3 +22,13 @@
   width: 100 !important;
   height: 100 !important;
 }
+.right-border{
+  border-right: 4px solid gray;
+}
+.left-border{
+  border-left: 4px solid gray;
+}
+.bottom-top-border{
+  border-top: 4px solid gray;
+  border-bottom: 4px solid gray;
+}

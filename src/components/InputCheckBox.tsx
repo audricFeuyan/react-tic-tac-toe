@@ -3,14 +3,16 @@ import '../style/InputCheckBox.module.css';
 
 type InputCheckBoxProps = {
     playgroundCellStyle: object,
+    border: boolean,
 }
 
 const defaultProps:InputCheckBoxProps = {
     playgroundCellStyle: {},
+    border: false
 }
 
 
-export const InputCheckBox:FC<InputCheckBoxProps> = ({playgroundCellStyle}:InputCheckBoxProps) => {
+export const InputCheckBox:FC<InputCheckBoxProps> = ({playgroundCellStyle, border}:InputCheckBoxProps) => {
     const [playgroundText, setPlaygroundText] = useState('');
     const [playgroundClicked, setPlaygroundClicked] = useState(false);
 
@@ -23,9 +25,7 @@ export const InputCheckBox:FC<InputCheckBoxProps> = ({playgroundCellStyle}:Input
     }
 
     return(
-        <div style={playgroundCellStyle}>
-            <input  style={playgroundCellStyle} data-index={1} value={playgroundText} type="text" readOnly onClick={handleInputClicked} />
-        </div>
+        <input  style={playgroundCellStyle} data-index={1} value={playgroundText} type="text" readOnly onClick={handleInputClicked} className={border ? "bottom-top-border":""}/>
     );
 };
 

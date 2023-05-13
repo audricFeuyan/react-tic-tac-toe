@@ -48,6 +48,7 @@ function App() {
 
   const panelSize = Math.min(Math.round(pageViewportHeight), Math.round(pageViewportWidth))*0.9;
   const defaultPlaygroundCellSpacing = 10;
+  const defaultPlaygroundColumnSpacing = 4;
   const playgroundStyle = {
     width: panelSize,
     height: panelSize,
@@ -55,13 +56,22 @@ function App() {
     marginRight: 'auto'
   };
   const playgroundColumnStyle = {
-    width: Math.round(panelSize/3),
+    width: Math.round(panelSize/3) - defaultPlaygroundColumnSpacing,
   };
-  const cellSize = Math.round(panelSize/3) - defaultPlaygroundCellSpacing;
+  const cellSize = Math.round(panelSize/3) - defaultPlaygroundColumnSpacing;
   const playgroundCellStyle = {
     height: cellSize,
+    width: cellSize - defaultPlaygroundColumnSpacing,
+    fontSize: cellSize - defaultPlaygroundCellSpacing,
+    padding: defaultPlaygroundCellSpacing,
+    justifyContent: 'center',
+    alignContent: 'center',
+  };
+  const playgroundCentralCellStyle = {
+    height: cellSize,
     width: cellSize,
-    fontSize: cellSize,
+    fontSize: cellSize - defaultPlaygroundCellSpacing,
+    padding: defaultPlaygroundCellSpacing,
     justifyContent: 'center',
     alignContent: 'center',
   };
@@ -71,20 +81,20 @@ function App() {
       <h1>Mon tic tac toe</h1>
       <div style={playgroundStyle}>
         <div className="form-playground-line" style={playgroundStyle}>
-          <div className="form-playground-column" style={playgroundColumnStyle} >
-            <InputCheckBox playgroundCellStyle={playgroundCellStyle} />
-            <InputCheckBox playgroundCellStyle={playgroundCellStyle} />
-            <InputCheckBox playgroundCellStyle={playgroundCellStyle} />
+          <div className="form-playground-column right-border" style={playgroundColumnStyle} >
+            <InputCheckBox playgroundCellStyle={playgroundCellStyle} border={false} />
+            <InputCheckBox playgroundCellStyle={playgroundCellStyle} border={true}/>
+            <InputCheckBox playgroundCellStyle={playgroundCellStyle} border={false} />
           </div>
           <div className="form-playground-column" style={playgroundColumnStyle}>
-            <InputCheckBox playgroundCellStyle={playgroundCellStyle} />
-            <InputCheckBox playgroundCellStyle={playgroundCellStyle} />
-            <InputCheckBox playgroundCellStyle={playgroundCellStyle} />
+            <InputCheckBox playgroundCellStyle={playgroundCellStyle} border={false} />
+            <InputCheckBox playgroundCellStyle={playgroundCentralCellStyle} border={true} />
+            <InputCheckBox playgroundCellStyle={playgroundCellStyle} border={false} />
           </div>
-          <div className="form-playground-column" style={playgroundColumnStyle}>
-            <InputCheckBox playgroundCellStyle={playgroundCellStyle} />
-            <InputCheckBox playgroundCellStyle={playgroundCellStyle} />
-            <InputCheckBox playgroundCellStyle={playgroundCellStyle} />
+          <div className="form-playground-column left-border" style={playgroundColumnStyle}>
+            <InputCheckBox playgroundCellStyle={playgroundCellStyle} border={false} />
+            <InputCheckBox playgroundCellStyle={playgroundCellStyle} border={true} />
+            <InputCheckBox playgroundCellStyle={playgroundCellStyle} border={false} />
           </div>
         </div>
       </div>
