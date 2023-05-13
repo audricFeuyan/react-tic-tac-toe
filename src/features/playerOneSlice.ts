@@ -17,7 +17,7 @@ export const playerOneSlice = createSlice({
         },
         playerOnePlayed: (state, action: PayloadAction<PlayState>) => {
             state.playDuration += action.payload.duration;
-            state.actualPlayState.push(action.payload.playPosition)
+            state.actualPlayState.push(action.payload.playPosition);
         }
     }
 });
